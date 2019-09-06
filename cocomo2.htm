@@ -1,0 +1,364 @@
+<! DOCTYPE html>
+<html>
+<head>
+<title>COCOMO II
+</title>
+<style>
+.error {color: #FF0000;}
+</style>
+</head>
+<body>
+
+	<?php
+
+		 $size = $cost = $prec = $resl = $pmat = $flex = $team = $rely = $data = $cplx = $ruse = $docu = $acap = $pcap = $pcon = $apex  = $plex = $ltex = $time = $stor = $pvol = $tool = $site = $sced = "";
+
+		 $size_error = $cost_error = ""; 
+
+		 if(isset($_POST['submit'])){
+		 	if(empty($_POST["size"])){
+		 		$size_error = "size is required";
+			 }
+		 	else
+		 		$sloc=$_POST["size"];
+
+		 if(empty($_POST["$cost"]))
+		 	$cost_error = "cost is required";
+		 else
+		 	$cost=$_POST["cost"];
+
+
+		}
+
+	?> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3 align="center"> COCOMO II - Constructive Cost Model</h3>
+<br>
+<br>
+<strong><u>Software Size</u></strong><br><br>
+<form method="post" action="#">
+	Sizing Method 
+  	<select name="sizing method">
+	<option value="sloc">Source Lines Of Code </option>
+	<option value="fp">Function Points </option>
+	</select><br><br><br>
+
+
+
+<p><span class="error">* required field</span></p>
+<strong>Enter SLOC (Source Lines Of Code)</strong>
+<input type="text" name="size" value="<?php echo $size; ?>">
+<span class="error">* <?php echo $size_error; ?></span>
+</br></br>
+<strong><u>Software Scale Drivers</u></strong><br><br>
+<table>
+	<tr>
+		<td>Precedentedness</td>
+		<td><select name ="PREC">
+	<option value="vlow">Very Low</option>
+	<option value="low">low</option>
+	<option value="nom" selected>Nominal</option>
+	<option value="high">High</option>
+	<option value="vhigh">Very High</option>
+	<option value="ehigh">Extra High</option>
+	</select>
+	</td>
+	</tr>
+
+	<tr>
+		<td>Development Flexibility</td>
+		<td><select name ="FLEX">
+	<option value="vlow">Very Low</option>
+	<option value="low">low</option>
+	<option value="nom" selected>Nominal</option>
+	<option value="high">High</option>
+	<option value="vhigh">Very High</option>
+	<option value="ehigh">Extra High</option>
+	</select>
+	</td>
+	</tr>
+
+<tr>
+	<td>Architecture/Risk Resolution</td>
+	<td><select name="RESL">
+	<option value="vlow">Very Low</option>
+	<option value="low">low</option>
+	<option value="nom" selected>Nominal</option>
+	<option value="high">High</option>
+	<option value="vhigh">Very High</option>
+	<option value="ehigh">Extra High</option>
+	</select><br>
+    </td>
+</tr>
+<tr>
+	<td>Team Cohesion</td>
+	<td><select name="TEAM">
+	<option value="vlow">Very Low</option>
+	<option value="low">low</option>
+	<option value="nom" selected>Nominal</option>
+	<option value="high">High</option>
+	<option value="vhigh">Very High</option>
+	<option value="ehigh">Extra High</option>
+	</select><br>
+	</td>
+</tr>
+	<td>Process Maturity</td>
+	<td><select name="PMAT">
+	<option value="vlow">Very Low</option>
+	<option value="low">low</option>
+	<option value="nom" selected>Nominal</option>
+	<option value="high">High</option>
+	<option value="vhigh">Very High</option>
+	<option value="ehigh">Extra High</option>
+	</select>
+	</td>
+</tr>
+
+
+</table><br>
+
+<strong><u>Software Cost Drivers</u></strong><br><br>
+<strong> Product </strong><br>
+<table>
+<tr>
+	<td>Required Software Reliability</td>
+	<td><select name="RELY">
+	<option value="vlow">Very Low</option>
+	<option value="low">low</option>
+	<option value="nom" selected>Nominal</option>
+	<option value="high">High</option>
+	<option value="vhigh">Very High</option>
+	
+	</select>
+	</td>
+</tr>
+<tr>
+	<td>Data Base Size</td>
+	<td><select name="DATA">
+	<option value="vlow">Very Low</option>
+	<option value="low">low</option>
+	<option value="nom" selected>Nominal</option>
+	<option value="high">High</option>
+	<option value="vhigh">Very High</option>
+	
+	</select>
+	</td>
+</tr>
+<tr>
+	<td>Product Complexity</td>
+	<td><select name="CPLX">
+	<option value="vlow">Very Low</option>
+	<option value="low">low</option>
+	<option value="nom" selected>Nominal</option>
+	<option value="high">High</option>
+	<option value="vhigh">Very High</option>
+	
+	</select>
+	</td>
+</tr>
+	
+<tr>
+	<td>Developed for Reusability</td>
+	<td><select name="RUSE">
+	<option value="vlow">Very Low</option>
+	<option value="low">low</option>
+	<option value="nom" selected>Nominal</option>
+	<option value="high">High</option>
+	<option value="vhigh">Very High</option>
+	
+	</select></td>
+</tr>
+<tr>
+	<td>Documentation Match to Lifecycle Needs</td>
+	<td><select name="DOCU">
+	<option value="vlow">Very Low</option>
+	<option value="low">low</option>
+	<option value="nom" selected>Nominal</option>
+	<option value="high">High</option>
+	<option value="vhigh">Very High</option>
+	
+	</select>
+	</td>
+</tr>
+</table>
+
+<strong >Personnel</strong>
+<table>
+<tr>
+<td>Analyst Capability</td>
+	<td><select name="ACAP">
+	<option value="vlow">Very Low</option>
+	<option value="low">low</option>
+	<option value="nom" selected>Nominal</option>
+	<option value="high">High</option>
+	<option value="vhigh">Very High</option>
+	
+	</select>
+</td></tr><br>
+<tr>
+	<td>Programmer Capability</td>
+	<td><select name="PCAP">
+	<option value="vlow">Very Low</option>
+	<option value="low">low</option>
+	<option value="nom" selected>Nominal</option>
+	<option value="high">High</option>
+	<option value="vhigh">Very High</option>
+	
+	</select>
+	</td>
+</tr>
+<tr>
+	<td>Personnel Continuity</td>
+	<td><select name="PCON">
+	<option value="vlow">Very Low</option>
+	<option value="low">low</option>
+	<option value="nom" selected>Nominal</option>
+	<option value="high">High</option>
+	<option value="vhigh">Very High</option>
+	
+	</select>
+	</td>
+</tr>
+<tr>
+	<td>Application Experience</td>
+	<td><select name="APEX">
+	<option value="vlow">Very Low</option>
+	<option value="low">low</option>
+	<option value="nom" selected>Nominal</option>
+	<option value="high">High</option>
+	<option value="vhigh">Very High</option>
+	
+	</select>
+	</td>
+</tr>
+<tr>
+	<td>Platform Experience</td>
+	<td><select name="PLEX">
+	<option value="vlow">Very Low</option>
+	<option value="low">low</option>
+	<option value="nom" selected>Nominal</option>
+	<option value="high">High</option>
+	<option value="vhigh">Very High</option>
+	
+	</select>
+	</td>
+</tr>
+<tr>
+	<td>Language and Toolset Experience</td>
+	<td><select name="LTEX">
+	<option value="vlow">Very Low</option>
+	<option value="low">low</option>
+	<option value="nom" selected>Nominal</option>
+	<option value="high">High</option>
+	<option value="vhigh">Very High</option>
+	
+	</select>
+	</td>
+</tr>
+</table>
+<strong>Platform</strong><br>
+<table>
+	<tr>
+	<td>Time Constraint</td>	
+	<td><select name="TIME">
+	<option value="vlow">Very Low</option>
+	<option value="low">low</option>
+	<option value="nom" selected>Nominal</option>
+	<option value="high">High</option>
+	<option value="vhigh">Very High</option>
+	
+	</select>
+	</td>
+</tr>
+<tr>
+	<td>Storage Constraint</td>
+	<td><select name="STOR">
+	<option value="vlow">Very Low</option>
+	<option value="low">low</option>
+	<option value="nom" selected>Nominal</option>
+	<option value="high">High</option>
+	<option value="vhigh">Very High</option>
+	
+	</select>
+	</td>
+</tr>
+<tr>
+	<td>Platform Volatility</td>
+	<td><select name="PVOL">
+	<option value="vlow">Very Low</option>
+	<option value="low">low</option>
+	<option value="nom" selected>Nominal</option>
+	<option value="high">High</option>
+	<option value="vhigh">Very High</option>
+	
+	</select>
+	</td>
+</tr>
+</table>
+<strong>Project</strong><br>
+<table>
+<tr>
+	<td>Use of Software Tools</td>
+	<td><select name="TOOL">
+	<option value="vlow">Very Low</option>
+	<option value="low">low</option>
+	<option value="nom" selected>Nominal</option>
+	<option value="high">High</option>
+	<option value="vhigh">Very High</option>
+	
+	</select>
+	</td>
+</tr>
+<tr>
+	<td>Multisite Development</td>
+	<td><select name="SITE">
+	<option value="vlow">Very Low</option>
+	<option value="low">low</option>
+	<option value="nom" selected>Nominal</option>
+	<option value="high">High</option>
+	<option value="vhigh">Very High</option>
+	
+	</select>
+	</td>
+</tr>
+<tr>
+	<td>Required Development Schedule</td>
+	<td><select name="SCED">
+	<option value="vlow">Very Low</option>
+	<option value="low">low</option>
+	<option value="nom" selected>Nominal</option>
+	<option value="high">High</option>
+	<option value="vhigh">Very High</option>
+	
+	</select>
+	</td>
+</tr>
+</table>
+<br><br>
+
+<strong>Software Labour Rates</strong><br>
+Cost per Person-Month (Rupees)
+<input type="text" name="cost"  value="<?php echo $cost_error; ?>" >
+<span class=error> * <?php echo $cost_error; ?></span>
+<br><br>
+
+<input type="submit" value="Calculate" name="submit">
+
+
+</form><br><br>
+<hr>
+
+</body>
+</html>
